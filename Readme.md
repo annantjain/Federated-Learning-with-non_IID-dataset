@@ -1,4 +1,4 @@
-#Label-Divergent Federated Learning with Clean & Noisy Images
+##Label-Divergent Federated Learning with Clean & Noisy Images
 
 ## Introduction
 
