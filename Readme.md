@@ -204,3 +204,16 @@ In this experiment, label smoothing was combined with personalized federated lea
 #### Experiment 12: Final New Algorithm with a Newly Developed Loss Function
 - **Code File**: `FedPer_modified.ipynb`
 - **Description**: Introduction of a newly developed loss function to enhance model performance in federated learning.
+
+
+### Interactive User Interface
+- **Code File**: `UI.ipynb`
+  
+In this experiment, we have used the `gradio` library to create an interactive user interface that evaluates the performance of 5 trained and saved client models. The interface accepts an input batch of images, which are named in the format `label_index.jpg`. The actual label of each image is extracted from the name before the underscore (`_`). 
+
+For example, if an input image is named `cat_1.jpg`, the label "cat" is extracted from the filename before the underscore.
+
+For each client model, the predicted labels are compared against the true labels. The output of the UI displays the percentage of correctly labeled images by each client model. Additionally, the interface provides an analysis showing which images were labeled correctly and which ones were predicted incorrectly.
+
+This interface allows easy evaluation and comparison of client models' performance on the provided dataset.
+ 
