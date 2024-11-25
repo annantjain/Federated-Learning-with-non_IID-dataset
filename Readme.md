@@ -223,6 +223,7 @@ This loss function designed to enhance the performance of personalized federated
 ### Formula
 
 Let:
+
 - \( \mathbf{p}(x_i) \): Prediction probabilities of the local model for input \( x_i \).
 - \( \mathbf{p}_{\text{global}}(x_i) \): Global model predictions for \( x_i \).
 - \( y_i \): True label.
@@ -238,7 +239,9 @@ The **loss function** is defined as:
 + \gamma \cdot (1 - c(x_i)) \cdot \|\mathbf{p}(x_i) - \mathbf{p}_{\text{global}}(x_i)\|_2^2
 \]
 
-#### Key Components:
+---
+
+### Key Components:
 1. **Classification with Noise Scaling**:  
    Weighted cross-entropy loss, scaled by \( (1 - \eta) \), focuses on accurate classification while prioritizing clean data.
 2. **Federated Alignment**:  
@@ -247,6 +250,7 @@ The **loss function** is defined as:
    \( \mathcal{H}(\mathbf{p}(x_i)) \): Penalizes overconfident predictions in noisy settings, encouraging caution.
 4. **Confidence-Calibrated Alignment**:  
    Penalizes high-confidence incorrect predictions by assigning greater weight to the term \( (1 - c(x_i)) \cdot \|\mathbf{p}(x_i) - \mathbf{p}_{\text{global}}(x_i)\|_2^2 \).
+
 
 
 
