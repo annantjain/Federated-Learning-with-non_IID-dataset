@@ -220,11 +220,7 @@ This loss function designed to enhance the performance of personalized federated
 4. **Confidence-Calibrated Alignment**:  
    Assigns a higher penalty to incorrect predictions made with high confidence, reducing the likelihood of overfitting on noisy data.
 
-### Formula
-
-The **loss function** is defined as:
 ![Loss Function](https://github.com/annantjain/Federated-Learning-with-non_IID-dataset/blob/master/New%20Loss_Function.png?raw=true)
-
 
   This loss Function has increased our accuracy % of 4 clients little bit. Hence this is the better loss function then Label smoothing loss function.
 
@@ -238,4 +234,7 @@ For example, if an input image is named `cat_1.jpg`, the label "cat" is extracte
 For each client model, the predicted labels are compared against the true labels. The output of the UI displays the percentage of correctly labeled images by each client model. Additionally, the interface provides an analysis showing which images were labeled correctly and which ones were predicted incorrectly.
 
 This interface allows easy evaluation and comparison of client models' performance on the provided dataset.
+
+### Trained Models
+-**client models**: It's a folder containing the trained models of all 5 clients. These models are trained by Updated Final algorithm with new Loss Function. These models can be used directly in UI.ipynb to make a Interface of labelling images by 5 different client models 
  
