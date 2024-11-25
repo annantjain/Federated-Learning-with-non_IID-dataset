@@ -62,7 +62,7 @@ Before training, we apply a series of transformations to each client’s dataset
 
 ### Local CNN Architecture
 
-The local CNN architecture remains the same for all clients, ensuring uniformity in model structure across experiments. ![Architecture Image](path-to-your-image)
+The local CNN architecture remains the same for all clients, ensuring uniformity in model structure across experiments. ![Architecture Image](https://github.com/annantjain/Federated-Learning-with-non_IID-dataset/blob/master/NN.png?raw=true)
 
 ### Common Training Configuration
 
