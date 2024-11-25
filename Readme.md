@@ -212,7 +212,7 @@ This loss function designed to enhance the performance of personalized federated
    Focuses on accurate classification, weighted by \( (1 - \eta) \), giving more importance to clean data for clients with higher noise ratios.
 
 2. **Federated Alignment**:  
-   Uses \( \text{KLDiv}(\mathbf{p} \parallel \mathbf{p}_\text{global}) \) to align local predictions with the global model while allowing client-specific variations.
+   Uses KL Divergence to align local predictions with the global model while allowing client-specific variations.
 
 3. **Entropy Regularization**:  
    Penalizes overconfident predictions to encourage caution, particularly in noisy environments.
@@ -222,36 +222,8 @@ This loss function designed to enhance the performance of personalized federated
 
 ### Formula
 
-Let:
-
-- \( \mathbf{p}(x_i) \): Prediction probabilities of the local model for input \( x_i \).
-- \( \mathbf{p}_{\text{global}}(x_i) \): Global model predictions for \( x_i \).
-- \( y_i \): True label.
-- \( \eta \): Noise ratio for the current client.
-- \( c(x_i) = \max(\mathbf{p}(x_i)) \): Confidence score of the prediction.
-
 The **loss function** is defined as:
-
-\[
-\mathcal{L} = (1 - \eta) \cdot \text{CE}(\mathbf{p}(x_i), y_i) 
-+ \alpha \cdot \text{KLDiv}(\mathbf{p}(x_i) \parallel \mathbf{p}_{\text{global}}(x_i)) 
-+ \beta \cdot \mathcal{H}(\mathbf{p}(x_i)) 
-+ \gamma \cdot (1 - c(x_i)) \cdot \|\mathbf{p}(x_i) - \mathbf{p}_{\text{global}}(x_i)\|_2^2
-\]
-
----
-
-### Key Components:
-1. **Classification with Noise Scaling**:  
-   Weighted cross-entropy loss, scaled by \( (1 - \eta) \), focuses on accurate classification while prioritizing clean data.
-2. **Federated Alignment**:  
-   \( \text{KLDiv}(\mathbf{p}(x_i) \parallel \mathbf{p}_{\text{global}}(x_i)) \): Aligns local predictions with the global model while allowing variations.
-3. **Entropy Regularization**:  
-   \( \mathcal{H}(\mathbf{p}(x_i)) \): Penalizes overconfident predictions in noisy settings, encouraging caution.
-4. **Confidence-Calibrated Alignment**:  
-   Penalizes high-confidence incorrect predictions by assigning greater weight to the term \( (1 - c(x_i)) \cdot \|\mathbf{p}(x_i) - \mathbf{p}_{\text{global}}(x_i)\|_2^2 \).
-
-
+![Loss Function](path-to-uploaded-image.png)
 
 
   This loss Function has increased our accuracy % of 4 clients little bit. Hence this is the better loss function then Label smoothing loss function.
