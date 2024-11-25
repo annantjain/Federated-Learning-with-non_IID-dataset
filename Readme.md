@@ -209,7 +209,7 @@ This loss function designed to enhance the performance of personalized federated
 
 #### **Key Components of Loss Function**
 1. **Classification with Noise Scaling**:  
-   Focuses on accurate classification, weighted by \( (1 - \eta) \), giving more importance to clean data for clients with higher noise ratios.
+   Focuses on accurate classification, weighted by \( (1 - eta) \), giving more importance to clean data for clients with higher noise ratios.
 
 2. **Federated Alignment**:  
    Uses KL Divergence to align local predictions with the global model while allowing client-specific variations.
@@ -223,7 +223,7 @@ This loss function designed to enhance the performance of personalized federated
 ### Formula
 
 The **loss function** is defined as:
-![Loss Function](path-to-uploaded-image.png)
+![Loss Function](https://github.com/annantjain/Federated-Learning-with-non_IID-dataset/blob/master/New%20Loss_Function.png?raw=true)
 
 
   This loss Function has increased our accuracy % of 4 clients little bit. Hence this is the better loss function then Label smoothing loss function.
