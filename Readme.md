@@ -198,13 +198,46 @@ In this experiment, label smoothing was combined with personalized federated lea
 ### Novelty Experiments
 
 #### Experiment 11: Final New Algorithm with Adaptive Pruning Methods
-- **Code File**: `FedPer_modified.ipynb`
-- **Description**: Implementation of adaptive pruning methods in the final algorithm to improve model performance and reduce unnecessary complexity.
+- **Code File**: `Final new algo with adaptive pruning-novelty.ipynb`
+- **Description**: Implementation of adaptive pruning methods in the final algorithm to improve model performance and reduce unnecessary complexity. But didn't observe the boost in accuracy %, obtained comparable results with my Exp 10.
 
 #### Experiment 12: Final New Algorithm with a Newly Developed Loss Function
-- **Code File**: `FedPer_modified.ipynb`
+- **Code File**: `Final new algo with new Loss Function-novelty.ipynb`
 - **Description**: Introduction of a newly developed loss function to enhance model performance in federated learning.
+#### New Loss Function:
+This loss function designed to enhance the performance of personalized federated learning by combining several optimization strategies.
 
+#### **Key Components of FDAL**
+1. **Classification with Noise Scaling**:  
+   Focuses on accurate classification, weighted by \( (1 - \eta) \), giving more importance to clean data for clients with higher noise ratios.
+
+2. **Federated Alignment**:  
+   Uses \( \text{KLDiv}(\mathbf{p} \parallel \mathbf{p}_\text{global}) \) to align local predictions with the global model while allowing client-specific variations.
+
+3. **Entropy Regularization**:  
+   Penalizes overconfident predictions to encourage caution, particularly in noisy environments.
+
+4. **Confidence-Calibrated Alignment**:  
+   Assigns a higher penalty to incorrect predictions made with high confidence, reducing the likelihood of overfitting on noisy data.
+
+#### **Mathematical Expression**
+The loss function is formulated as:
+\[
+\mathcal{L} = (1 - \eta) \cdot \text{CE}(\mathbf{p}(x_i), y_i) 
++ \alpha \cdot \text{KLDiv}(\mathbf{p}(x_i) \parallel \mathbf{p}_\text{global}(x_i)) 
++ \beta \cdot \mathcal{H}(\mathbf{p}(x_i)) 
++ \gamma \cdot (1 - c(x_i)) \cdot \|\mathbf{p}(x_i) - \mathbf{p}_\text{global}(x_i)\|_2^2
+\]
+
+#### **Notations**
+- \( \mathbf{p}(x_i) \): Prediction probabilities of the local model for input \( x_i \).
+- \( \mathbf{p}_\text{global}(x_i) \): Global model predictions for \( x_i \).
+- \( y_i \): True label.
+- \( \eta \): Noise ratio for the current client.
+- \( c(x_i) = \max(\mathbf{p}(x_i)) \): Confidence score of the prediction.
+- \( \alpha, \beta, \gamma \): Hyperparameters controlling the influence of each term in the loss.
+
+  This loss Function has increased our accuracy % of 4 clients little bit. Hence this is the better loss function then Label smoothing loss function.
 
 ### Interactive User Interface
 - **Code File**: `UI.ipynb`
